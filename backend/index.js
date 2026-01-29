@@ -75,10 +75,11 @@ app.post("/api/auth/register", async (req, res) => {
       "SELECT * FROM users WHERE email = ?",
       [email],
       async (err, result) => {
+        if (err) return res.status(500).json(err);
+
         if (result.length > 0) {
           return res.status(400).json("User already exists");
         }
-
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
