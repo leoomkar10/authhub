@@ -9,7 +9,7 @@ export default function Dashboard() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    axios.get("http://localhost:5000/api/user/profile", {
+    axios.get(`${import.meta.env.VITE_API_URL}api/user/profile`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
