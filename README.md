@@ -476,42 +476,10 @@ Solution: Check ECS tasks are running and health checks are passing
 **Issue: Frontend cannot reach backend**
 ```
 Solution: Verify CORS settings and API URL in frontend .env
-```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
 
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👨‍💻 Author
-
-**Omkar Gunjote**  
-AWS Account: 4746-6842-5931  
-Region: Asia Pacific (Mumbai)
-
----
-
-## 🙏 Acknowledgments
-
-- AWS Documentation
-- Docker Documentation
-- React.js Community
-- Node.js Community
-
----
-
-## 📞 Support
-
-For issues and questions, please create an issue in the GitHub repository.
 
 ---
 
