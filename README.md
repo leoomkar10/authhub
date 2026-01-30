@@ -13,9 +13,7 @@ This project follows a production-style architecture using **AWS ECS**, **Applic
 
 ## 🔗 Live Architecture
 
-```
-<img width="2816" height="1536" alt="Gemini_Generated_Image_t5nm5mt5nm5mt5nm" src="https://github.com/user-attachments/assets/ceca04ce-311b-4433-bf38-76a9baea8d49" />
-```
+<img width="2816" height="1536" alt="Gemini_Generated_Image_t5nm5mt5nm5mt5nm" src="https://github.com/user-attachments/assets/44b1987f-ad65-44b1-bd19-5357028b6f98" />
 
 ---
 
