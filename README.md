@@ -14,7 +14,7 @@ This project follows a production-style architecture using **AWS ECS**, **Applic
 ## 🔗 Live Architecture
 
 ```
-React (S3) → Application Load Balancer → ECS (Docker Backend) → RDS (MySQL)
+<img width="2816" height="1536" alt="Gemini_Generated_Image_t5nm5mt5nm5mt5nm" src="https://github.com/user-attachments/assets/ceca04ce-311b-4433-bf38-76a9baea8d49" />
 ```
 
 ---
@@ -138,16 +138,7 @@ React (S3) → Application Load Balancer → ECS (Docker Backend) → RDS (MySQL
 
 ### 1. Amazon RDS (MySQL Database)
 
-![AWS RDS Screenshot](./screenshots/Screenshot_2026-01-30_102742.png)
-
-**Configuration:**
-- **Database:** `authhub-database`
-- **Engine:** MySQL Compatible
-- **Status:** Available ✅
-- **Role:** Instance
-- **Upgrade Order:** SECOND
-- **Region:** ap-south-1a
-- **Size:** db.t3.micro
+<img width="1915" height="677" alt="Screenshot 2026-01-30 102742" src="https://github.com/user-attachments/assets/ae8309c7-efc6-4ab9-814d-b8b6932d65b6" />
 
 The RDS instance stores all user authentication data including hashed passwords and user information.
 
@@ -155,14 +146,7 @@ The RDS instance stores all user authentication data including hashed passwords 
 
 ### 2. Amazon ECS (Elastic Container Service)
 
-![AWS ECS Screenshot](./screenshots/Screenshot_2026-01-30_102816.png)
-
-**Configuration:**
-- **Cluster:** `authhub_ecs_demo`
-- **Services:** 1
-- **Tasks:** 0 Pending | 1 Running ✅
-- **Container Instances:** 0 EC2
-- **CloudWatch Monitoring:** Default
+<img width="1915" height="748" alt="Screenshot 2026-01-30 102816" src="https://github.com/user-attachments/assets/b3bbb821-795d-4b4b-ac0a-71a15df7a603" />
 
 ECS orchestrates the Docker containers running the Node.js backend application.
 
@@ -170,35 +154,15 @@ ECS orchestrates the Docker containers running the Node.js backend application.
 
 ### 3. Amazon S3 (Frontend Hosting)
 
-![AWS S3 Screenshot](./screenshots/Screenshot_2026-01-30_103021.png)
+<img width="1917" height="645" alt="Screenshot 2026-01-30 103021" src="https://github.com/user-attachments/assets/e4b206fa-08be-4058-8b43-c124f7bbce9b" />
 
-**Buckets:**
-- **authhub-s3** (Primary frontend bucket)
-- nikeproject-aws
-- omkar-devy
-- omkardev-private
-- simple-og
-
-**Configuration:**
-- **Region:** Asia Pacific (Mumbai) ap-south-1
-- **Created:** January 29, 2026
-- **Purpose:** Static website hosting for React application
+Static website hosting for React application
 
 ---
 
 ### 4. Application Load Balancer (ALB)
 
-![AWS ALB Screenshot](./screenshots/Screenshot_2026-01-30_103048.png)
-
-**Configuration:**
-- **Name:** `authhub-alb`
-- **State:** Active ✅
-- **Type:** Application
-- **Scheme:** Internet-facing
-- **IP Address Type:** IPv4
-- **VPC ID:** vpc-09eeb6c251c996170
-- **Availability Zones:** 2 Availability Zones
-- **Security Group:** sg-0...
+<img width="1918" height="637" alt="Screenshot 2026-01-30 103048" src="https://github.com/user-attachments/assets/a63d09d3-4bf0-41c4-a69b-712acff53eb9" />
 
 The ALB distributes incoming traffic to ECS tasks and provides a single entry point for API requests.
 
@@ -258,69 +222,6 @@ The ALB distributes incoming traffic to ECS tasks and provides a single entry po
 🔐 **JWT Authentication**
 - Stateless token-based authentication
 - Tokens expire after set duration
-
----
-
-## 🚀 Setup Instructions
-
-### Prerequisites
-
-- Node.js 16+ installed
-- Docker installed
-- AWS CLI configured
-- AWS Account with appropriate permissions
-
-### Local Development
-
-#### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/authhub.git
-cd authhub
-```
-
-#### 2. Setup Backend
-
-```bash
-cd backend
-npm install
-```
-
-Create `.env` file:
-
-```env
-PORT=5000
-DB_HOST=your-rds-endpoint.rds.amazonaws.com
-DB_USER=admin
-DB_PASSWORD=your-password
-DB_NAME=authhub
-JWT_SECRET=your-jwt-secret
-```
-
-Run backend:
-
-```bash
-npm start
-```
-
-#### 3. Setup Frontend
-
-```bash
-cd frontend
-npm install
-```
-
-Create `.env` file:
-
-```env
-VITE_API_URL=http://your-alb-endpoint.amazonaws.com
-```
-
-Run frontend:
-
-```bash
-npm run dev
-```
 
 ---
 
@@ -410,72 +311,6 @@ aws s3 website s3://authhub-s3 --index-document index.html
 | `VITE_API_URL` | Backend API endpoint | `http://authhub-alb-xxx.ap-south-1.elb.amazonaws.com` |
 
 ---
-
-## 📊 Project Structure
-
-```
-authhub/
-├── backend/
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── routes/
-│   │   ├── middleware/
-│   │   └── server.js
-│   ├── Dockerfile
-│   ├── package.json
-│   └── .env
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── App.jsx
-│   ├── package.json
-│   └── .env
-├── screenshots/
-│   ├── Screenshot_2026-01-30_102742.png (RDS)
-│   ├── Screenshot_2026-01-30_102816.png (ECS)
-│   ├── Screenshot_2026-01-30_103021.png (S3)
-│   └── Screenshot_2026-01-30_103048.png (ALB)
-└── README.md
-```
-
----
-
-## 🎯 Key Learnings
-
-- ✅ Containerizing applications with Docker
-- ✅ Deploying containers on AWS ECS with Fargate
-- ✅ Setting up Application Load Balancers
-- ✅ Managing databases with AWS RDS
-- ✅ Implementing JWT authentication
-- ✅ Securing cloud applications with security groups
-- ✅ Hosting static websites on S3
-- ✅ Understanding cloud-native architecture patterns
-
----
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Issue: Cannot connect to RDS**
-```
-Solution: Check security group allows inbound from ECS security group on port 3306
-```
-
-**Issue: ECS tasks failing to start**
-```
-Solution: Verify ECR image exists and task role has ECR pull permissions
-```
-
-**Issue: ALB returns 502 error**
-```
-Solution: Check ECS tasks are running and health checks are passing
-```
-
-**Issue: Frontend cannot reach backend**
-```
-Solution: Verify CORS settings and API URL in frontend .env
 
 ## 📝 License
 
